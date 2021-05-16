@@ -4,7 +4,7 @@
 $date = $_POST['date'];
 
 # Apppel ws et récup données
-const WSDL = 'http://localhost:8080/CVVEN-Claudio-WS-Server/DispoWebService?WSDL';
+const WSDL = 'http://localhost:8080/cvven-web-service-java/DispoWebService?WSDL';
 $soapclt = new SoapClient(WSDL, []);
 $res = $soapclt->dispoParDate($date);
 $disponibilites = $res->return;
@@ -22,7 +22,7 @@ $disponibilites = $res->return;
     <title>Document</title>
 </head>
 <body>
-<h1>Disponibilités en date du $date</h1>
+<h1>Disponibilités en date du <?php echo $date ?></h1>
 <table>
     <thead>
     <th>Logement</th>
